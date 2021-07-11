@@ -21,3 +21,18 @@ here's an example of the .json file
 ```
 
 # usage
+
+to start the program change to the repos directory and do
+```
+python account.py
+```
+or for the python3 users
+```
+python3 account.py
+```
+
+if you just opened the program for the first time you have to choose option 1
+
+# to-dos
+1. add a login function
+2. fix some other bugs i haven't found yet
