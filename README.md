@@ -32,7 +32,3 @@ python3 account.py
 ```
 
 if you just opened the program for the first time you have to choose option 1
-
-# to-dos
-1. add a login function
-2. fix some other bugs i haven't found yet
