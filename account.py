@@ -1,7 +1,8 @@
 import json
 import random
 import hashlib 
-import pathlib
+import uuid
+from hmac import compare_digest
 
 print('1. create account')
 print('2.load account')
@@ -13,28 +14,35 @@ if e == '1':
     email = input('email:')
     password = input('choose a password')
     password_hash = hashlib.sha256(password.encode()).hexdigest()
-    userid = random.randint(0000000, 9999999)
 
     dictionary ={
-        "name" : username,
-        "email" : email,
-        "password" : password_hash ,
-        "user_id" : userid
+        'name' : username,
+        'email' : email,
+        'password' : password_hash ,
+        "user_id": str(uuid.uuid4())
     }
   
-    
-    json_data = json.dumps(dictionary)
-  
-    with open("account.json", "w") as outfile:
-        json.dump(json_data, outfile)
+    with open('account.json', 'w') as r:
+        json.dump(dictionary, r, indent = 4)
 
 with open('account.json', 'r') as read_file:
   data = json.load(read_file)
 
 if e == "2":
-    My_file=open('account.json')
-    try:
-        My_file.close()
-        print(data)
-    except FileNotFoundError:
-        print("Files couldn't be opened!")        
+    print(data)
+
+with open('account.json', 'r') as read_file:
+    data = json.load(read_file)
+
+if e == '3':
+    user = input('username:')
+
+    if data["name"] == user:
+        password = input("password:")
+        new_hash = hashlib.sha256(password.encode()).hexdigest()
+        if compare_digest(new_hash, data["password"]):
+          print('login success')
+        else:
+          print('pass incorrect')
+    else:
+        print('incorrect username')
