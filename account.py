@@ -5,7 +5,8 @@ import uuid
 from hmac import compare_digest
 
 print('1. create account')
-print('2.load account')
+print('2. load account')
+print('3. log in')
 
 e = input('choose an option')
 if e == '1':
