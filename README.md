@@ -17,7 +17,12 @@ i wanted to add a login function but i kept getting errors.
 
 here's an example of the .json file
 ```
-"{\"name\": \"name\", \"email\": \"examplemail@gmail.com\", \"password\": \"hashedd_password\", \"user_id\": 8808592}"
+{
+    "name": "roothefox",
+    "email": "randomtestmail@example.com",
+    "password": "cc63371a27ea1499200087267269c495fac5a4b5c8eb3c7f51a2559a5538fdb1",
+    "user_id": "650c8566-9c0f-47c3-b335-77d41cfc360c"
+}
 ```
 
 # usage
