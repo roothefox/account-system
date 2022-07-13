@@ -12,20 +12,21 @@ e = input('choose an option')
 if e == '1':
     print('you chose to create an account')
     username = input('username:')
-    email = input("email (@roomail.com already added, don't type it in: ")+"@roomail.com"
-    if "@roomail.com" in email:
-        email.replace("@roomail.com@roomail.com", "@roomail.com")
+    email = input("email (entering stuff like @gmail.com will make your email @gmail.com@roomail.com so leave that out): ")
     password = input('choose a password')
     password_hash = hashlib.sha256(password.encode()).hexdigest()
-
     dictionary ={
         'name' : username,
-        'email' : email,
+        'email' : email+"@roomail.com",
         'password' : password_hash ,
         "user_id": str(uuid.uuid4())
     }
-    
-    print(email)
+    print("account credentials:")
+    print(username)
+    if "@roomail.com" not in email:
+        print(email+"@roomail.com")
+    else:
+        print(email)
 
     with open('account.json', 'w') as r:
         json.dump(dictionary, r, indent = 4)
